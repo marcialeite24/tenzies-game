@@ -1,7 +1,8 @@
 export default function Dice(props) {  
+    const pips = props.value ? Array(props.value).fill(<span className="dice-pip" />) : null;
     return (
-        <div className={"dice-item " + props.green} onClick={props.hold}>
-            <h2>{props.value}</h2>
+        <div className={"dice-face " + props.green} onClick={props.hold}>
+            {pips}
         </div>
     );
   }
