@@ -24,9 +24,14 @@ export default function App() {
   } 
 
   function rollDice() {
-    setdice(oldDice => oldDice.map(n => {
-      return n.isHeld ? n : {...n, value: Math.floor(Math.random() * 6) + 1, id: nanoid()}
-    }))
+    if(tenzies) {
+      setdice(allNewDices())
+      setTenzies(false)
+    } else {
+      setdice(oldDice => oldDice.map(n => {
+        return n.isHeld ? n : {...n, value: Math.floor(Math.random() * 6) + 1, id: nanoid()}
+      }))
+    }
   }
 
   function holdDice(id) {
