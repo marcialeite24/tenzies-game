@@ -1,12 +1,16 @@
 import './App.css';
 import React from "react"
 import Confetti from 'react-confetti'
-import Dice from "./Dice"
+import Dice from "./components/Dice"
+import GameStats from "./components/GameStats"
 import {nanoid} from "nanoid"
 
 export default function App() {
   const [dice, setdice] = React.useState(allNewDices())
   const [tenzies, setTenzies] = React.useState(false)
+  const [rolls, setRolls] = React.useState(0)
+  const [time, setTime] = React.useState(0)
+  const [running, setRunning] = React.useState(false);
   const diceElements = dice.map(n => 
     <Dice key={n.id} value={n.value} green={n.isHeld ? "green" : ""} hold={() => holdDice(n.id)} />
   )
@@ -27,10 +31,14 @@ export default function App() {
     if(tenzies) {
       setdice(allNewDices())
       setTenzies(false)
+      setRolls(0)
+      setRunning(false)
     } else {
+      setRunning(true)
+      setRolls(prevRolls => prevRolls + 1)
       setdice(oldDice => oldDice.map(n => {
         return n.isHeld ? n : {...n, value: Math.floor(Math.random() * 6) + 1, id: nanoid()}
-      }))
+      }))      
     }
   }
 
@@ -38,6 +46,7 @@ export default function App() {
     setdice(oldDice => oldDice.map(n => {
       return n.id === id ? {...n, isHeld: !n.isHeld} : n
     }))
+    setRunning(true)
   }
 
   React.useEffect(() => {
@@ -49,6 +58,18 @@ export default function App() {
     } 
   }, [dice])
 
+  React.useEffect(() => {
+    let interval;
+    if (running) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [running]);
+
   return (
     <main>
       {tenzies && <Confetti />}
@@ -58,6 +79,7 @@ export default function App() {
         {diceElements}
       </div>
       <button className='roll-btn' onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
+      <GameStats rolls={rolls} time={time}/>
     </main>    
   );
 }

@@ -7,9 +7,9 @@ This project provides a solution to the [Tenzies Game project on Scrimba](https:
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Getting Started with Create React App](#getting-started-with-create-react-app)
-- [Features added](#features-added)
-
+  - [Features added](#features-added)
+- [Getting Started with Create React App](#getting-started-with-create-react-app)
+    
 ## Overview
 
 ### The challenge
@@ -26,11 +26,11 @@ Create a Tenzies Game using React.JS framework and its functionalities.
 - Track the time it took to win
 - Save user's best time to localStorage
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
