@@ -12,10 +12,10 @@ export default function GameStats(props) {
 
     return (
         <div className='game-stats'>
-            <p><FontAwesomeIcon icon={faDice} /> Dice Rolls: {props.rolls}</p>
-            <p><FontAwesomeIcon icon={faDice} /> Best Rolls: {props.bestRolls}</p>
-            <p><FontAwesomeIcon icon={faClock} /> Time elapsed: {minutes}:{seconds}:{milliseconds}</p>
-            <p><FontAwesomeIcon icon={faClock} /> Best Time: {bestMinutes}:{bestSeconds}:{bestMilliseconds}</p>
+            <p><FontAwesomeIcon icon={faDice} /> <span className='bold'>Dice Rolls:</span> {props.rolls}</p>
+            <p><FontAwesomeIcon icon={faDice} /> <span className='bold'>Best Rolls:</span> {props.bestRolls}</p>
+            <p><FontAwesomeIcon icon={faClock} /> <span className='bold'>Time elapsed:</span> {minutes}:{seconds}:{milliseconds}</p>
+            <p><FontAwesomeIcon icon={faClock} /> <span className='bold'>Best Time:</span> {bestMinutes}:{bestSeconds}:{bestMilliseconds}</p>
         </div>
     );
 }

@@ -17,6 +17,9 @@ This project provides a solution to the [Tenzies Game project on Scrimba](https:
 Create a Tenzies Game using React.JS framework and its functionalities.
 
 ### Screenshot
+![Tenzies Start](./screenshots/tenzies-start.png)
+![Tenzies Win](./screenshots/tenzies-win.png)
+
 
 ### Features Added
 
