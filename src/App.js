@@ -3,7 +3,7 @@ import React from "react"
 import Confetti from 'react-confetti'
 import Dice from "./components/Dice"
 import GameStats from "./components/GameStats"
-import {nanoid} from "nanoid"
+import { nanoid } from "nanoid"
 
 export default function App() {
   const [dice, setdice] = React.useState(allNewDices())
@@ -13,6 +13,13 @@ export default function App() {
   const [running, setRunning] = React.useState(false);
   const diceElements = dice.map(n => 
     <Dice key={n.id} value={n.value} green={n.isHeld ? "green" : ""} hold={() => holdDice(n.id)} />
+  )
+
+  const [bestRolls, setBestRolls] = React.useState(       
+    () => JSON.parse(localStorage.getItem("bestRolls")) || 0
+  )
+  const [bestTime, setBestTime] = React.useState(       
+    () => JSON.parse(localStorage.getItem("bestTime")) || 0
   )
 
   function allNewDices() {
@@ -31,9 +38,12 @@ export default function App() {
     if(tenzies) {
       setdice(allNewDices())
       setTenzies(false)
-      setRolls(0)
       setRunning(false)
+      setRolls(0)
+      setTime(0)
     } else {
+      console.log(bestRolls)
+      console.log(bestTime)
       setRunning(true)
       setRolls(prevRolls => prevRolls + 1)
       setdice(oldDice => oldDice.map(n => {
@@ -49,12 +59,22 @@ export default function App() {
     setRunning(true)
   }
 
+  function setStats() {
+    if (!bestRolls || rolls < bestRolls) {
+      setBestRolls(rolls);
+    }
+    if (!bestTime || time < bestTime) {
+      setBestTime(time);
+    }
+  }
+
   React.useEffect(() => {
     const allHeld = dice.every(n => n.isHeld)
     const allEqual = dice.every(n => n.value === dice[0].value)
     if(allHeld && allEqual) {
       setTenzies(true)
-      console.log("You won!")
+      setRunning(false)
+      setStats()
     } 
   }, [dice])
 
@@ -70,6 +90,13 @@ export default function App() {
     return () => clearInterval(interval);
   }, [running]);
 
+  React.useEffect(() => {
+    localStorage.setItem("bestRolls", JSON.stringify(bestRolls))
+  }, [bestTime])
+  React.useEffect(() => {
+    localStorage.setItem("bestTime", JSON.stringify(bestTime))
+  }, [bestTime])
+
   return (
     <main>
       {tenzies && <Confetti />}
@@ -78,8 +105,10 @@ export default function App() {
       <div className='dice-container'>
         {diceElements}
       </div>
-      <button className='roll-btn' onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
-      <GameStats rolls={rolls} time={time}/>
+      <div>
+        <button className='roll-btn' onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
+      </div>
+      <GameStats rolls={rolls} time={time} bestRolls={bestRolls} bestTime={bestTime}/>     
     </main>    
   );
 }
