@@ -25,9 +25,8 @@ Create a Tenzies Game using React.JS framework and its functionalities.
 
 - Put real dots on the dice
 - Track the number of rolls
-- Save user's best rolls to localStorage
 - Track the time it took to win
-- Save user's best time to localStorage
+- Save user's best rolls and best time to localStorage
 
 ## Getting Started with Create React App
 
