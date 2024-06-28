@@ -1,6 +1,6 @@
 # Tenzies Game 
-Tenzies Game is a React-based dice game challenging players to match 10 die faces in the shortest time and minimal rolls.
-This project provides a solution to the [Tenzies Game project on Scrimba](https://scrimba.com/learn/learnreact) following the designed provided on this [Figma file](https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Untitled?node-id=0%3A1). Scrimba helps you improve your coding skills by building realistic projects.
+Tenzies Game is a React-based dice game that challenges players to match 10 die faces in the shortest time with minimal rolls.
+This project provides a solution to the [Tenzies Game project on Scrimba](https://scrimba.com/learn/learnreact) only designed for tablet devices following the design provided on this [Figma file](https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Untitled?node-id=0%3A1). Scrimba helps you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -14,7 +14,7 @@ This project provides a solution to the [Tenzies Game project on Scrimba](https:
 
 ### The challenge
 
-Create a Tenzies Game using React.JS framework and its functionalities.
+Create a Tenzies Game using the React.JS framework and its functionalities.
 
 ### Screenshot
 ![Tenzies Start](./screenshots/tenzies-start.png)
@@ -26,7 +26,7 @@ Create a Tenzies Game using React.JS framework and its functionalities.
 - Put real dots on the dice
 - Track the number of rolls
 - Track the time it took to win
-- Save user's best rolls and best time to localStorage
+- Save the user's best rolls and best time to localStorage
 
 ## Getting Started with Create React App
 
