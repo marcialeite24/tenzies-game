@@ -1,6 +1,6 @@
 # Tenzies Game 
 Tenzies Game is a React-based dice game that challenges players to match 10 die faces in the shortest time with minimal rolls.
-This project provides a solution to the [Tenzies Game project on Scrimba](https://scrimba.com/learn/learnreact) only designed for tablet devices following the design provided on this [Figma file](https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Untitled?node-id=0%3A1). Scrimba helps you improve your coding skills by building realistic projects. 
+This project provides a solution to the [Tenzies Game project on Scrimba](https://scrimba.com/learn/learnreact) following the design provided on this [Figma file](https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Untitled?node-id=0%3A1). Scrimba helps you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
