@@ -123,3 +123,33 @@ main {
 .game-stats p:nth-child(3) {
     grid-column: 1 / span 2;
 }
+
+@media (max-width: 780px) {
+    main {
+        width: 650px;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+    }
+
+    main {
+        width: 300px;
+    }
+
+    .dice-face {
+        height: 25px;
+        width: 25px;
+    }
+    
+    .dice-pip {
+        box-shadow: unset;
+        height: 70%;
+        width: 70%;
+    }
+}
