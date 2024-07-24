@@ -23,7 +23,7 @@ export default function App() {
   )
 
   function allNewDices() {
-    const newDice = new Array()
+    const newDice = []
     for(let i=0; i<10; i++) {
         newDice.push({
           value: Math.floor(Math.random() * 6) + 1,
@@ -42,8 +42,6 @@ export default function App() {
       setRolls(0)
       setTime(0)
     } else {
-      console.log(bestRolls)
-      console.log(bestTime)
       setRunning(true)
       setRolls(prevRolls => prevRolls + 1)
       setdice(oldDice => oldDice.map(n => {
